@@ -43,5 +43,11 @@ var displayPlaces = function (response) {
     var newName = document.createElement('p');
     newName.textContent = response[i].name;
     places.appendChild(newName);
+    var newDescription = document.createElement('p');
+    newDescription.textContent = response[i].description;
+    places.appendChild(newDescription);
+    var newReview = document.createElement('p');
+    newReview.textContent = response[i].comment;
+    places.appendChild(newReview);
   }
 }
