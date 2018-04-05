@@ -1,7 +1,7 @@
 const dbConnection = require('../database/db_connection.js');
 
-const getUsers = (cb) => {
-    dbConnection.query(`SELECT * FROM users`, (err, res) => {
+const getPlaces = (cb) => {
+    dbConnection.query(`SELECT * FROM places`, (err, res) => {
         if (err) {
             cb(err);
         } else {
@@ -10,4 +10,4 @@ const getUsers = (cb) => {
     });
 };
 
-module.exports = { getUsers };
+module.exports = { getPlaces };
