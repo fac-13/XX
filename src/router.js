@@ -1,4 +1,4 @@
-const { staticHandler } = require('./handler');
+const { staticHandler, usersHandler } = require('./handler');
 
 const router = (request, response) => {
   const url = request.url;
@@ -8,6 +8,8 @@ const router = (request, response) => {
     staticHandler(response, 'public/index.html');
   } else if (url.indexOf('public') !== -1) {
     staticHandler(response, url);
+  } else if (url.indexOf('users') !== -1) {
+    usersHandler(response, url);
   } else {
     response.writeHead(404, { 'content-type': 'text/plain' });
     response.end('404 error');
