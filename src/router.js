@@ -1,4 +1,4 @@
-const { staticHandler } = require('./handlers');
+const { staticHandler } = require('./handler');
 
 const router = (request, response) => {
   const url = request.url;
