@@ -6,13 +6,12 @@ const fs = require('fs');
 
 const router = (request, response) => {
   const url = request.url;
-
-  if (url === "/") {
+  if (url === '/') {
     console.log(url);
-    staticHandler(response, "public/index.html");
-  } else if (url.indexOf("public") !== -1) {
+    staticHandler(response, 'public/index.html');
+  } else if (url.indexOf('public')!== -1) {
     staticHandler(response, url);
-  } else if (url.indexOf("places") !== -1) {
+  } else if (url==='/list-places'){
     placeHandler(response, url);
   } else if (url.indexOf("add-place") !== -1) {
     console.log('this is url: ', url);
