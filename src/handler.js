@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const querystring = require('querystring');
+const { getPlaces } = require('./queries/getData');
 
 const staticHandler = (response, filepath) => {
   const extension = filepath.split('.')[1];
@@ -23,6 +24,22 @@ const staticHandler = (response, filepath) => {
   });
 };
 
+const placeHandler = (response, url) => {
+  getPlaces((err, res) => {
+    if (err) {
+      response.writeHead(500, "Content-Type:text/html");
+      response.end("<h1>Sorry, there was a problem getting the users</h1>");
+      console.log(error);
+    } else {
+      let output = JSON.stringify(res);
+      response.writeHead(200, {
+        "content-type": "application/json"
+      });
+      response.end(output);
+    }
+  });
+};
+
 module.exports = {
-  staticHandler
+  staticHandler, placeHandler
 };
