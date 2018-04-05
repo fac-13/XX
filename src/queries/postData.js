@@ -1,17 +1,16 @@
-const databaseConnection = require('../../database/db_connection.js');
+const databaseConnection = require('../database/db_connection.js');
 
-const addPlace = (name, address, tel, website, description, picture, cb) => {
+const addPlace = (name, description, cb) => {
   databaseConnection.query(
-    'INSERT INTO users (name, address, phone_number, website, description, picture) VALUES ($1, $2, $3, $4, $5, $6)',
-    [name],
+    'INSERT INTO places (name, description) VALUES ($1, $2)',
+    [name, description],
     (err, res) => {
       if (err) {
         return cb(err);
       } else {
         cb(null, res);
       }
-    },
-  );
+    });
 };
 
 module.exports = addPlace;
