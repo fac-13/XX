@@ -11,14 +11,20 @@
 </head>
 
 <body>
-<button class="read-btn" type="button">See All Reviews</button>
-<button class="write-btn" type="button">Write a New Review</button>
-
-<form class="form" action="/add-place" method="post">
-  <input type="text" class="name" name="name" placeholder="Name of place"> 
-  <input type="text" class="description" name="description" placeholder="Type of place">
-  <button>Add Review!</button>
- </form>
+  <main class="content">
+    <div class="top-buttons">
+      <button class="read-btn" type="button">See All Reviews</button>
+      <button class="write-btn" type="button">Add a place</button>
+    </div>
+    <form class="form" action="/add-place" method="post">
+      <input type="text" class="name" name="name" placeholder="Name of place" required> 
+      <br>
+      <input type="text" class="description" name="description" placeholder="Type of place" required>
+      <br>
+      <textarea type="text" class="comment" name="comment" placeholder="Leave a review" required></textarea>
+      <button class="review-btn">Add Review!</button>
+    </form>
+  </main>
  <div id="places"></div>
  <script src="public/dom.js" type="application/javascript"></script>
 </body>

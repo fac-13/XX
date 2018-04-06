@@ -24,7 +24,7 @@ var fetchXhr = function(url, callback) {
 
 
 writeButton.addEventListener('click', function(e) {
-  form.style.display = 'block';
+  form.style.display = 'flex';
 })
 
 readButton.addEventListener('click', function(e) {
