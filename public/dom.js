@@ -1,9 +1,11 @@
 /* eslint-disable */
 var viewButton = document.querySelector('.view-btn');
 var reviewButton = document.querySelector('.review-btn');
+var reviewForm = document.querySelector('#review-form');
 var form = document.querySelector('.form');
 var places = document.getElementById('places');
 var topButtons  = document.querySelector('.top-buttons');
+
 
 var fetchXhr = function(url, callback) {
   console.log(url);
@@ -25,9 +27,10 @@ var fetchXhr = function(url, callback) {
 
 
 reviewButton.addEventListener('click', function(e) {
-  document.querySelector('#review-form').removeAttribute('hidden');
+  reviewForm.removeAttribute('hidden');
   topButtons.style.display = "none";
-})
+});
+
 
 viewButton.addEventListener('click', function(e) {
   var url = '/list-places';
@@ -35,6 +38,8 @@ viewButton.addEventListener('click', function(e) {
       if (error) {
         console.error(error);
       } else {
+        topButtons.style.display = "none";
+        places.removeAttribute('hidden');
         displayPlaces(response);
       }
     });
