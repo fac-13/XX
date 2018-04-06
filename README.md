@@ -17,6 +17,7 @@ We created a basic software architecture and mapped out our file structure. We a
 
 
 ### Database schema & documentation 
+![schema](https://user-images.githubusercontent.com/18426161/38359799-003d5b74-38c1-11e8-82e5-32237cc2eda6.png)
 Our database consists of 3 tables: 
 * users 
 * reviews
