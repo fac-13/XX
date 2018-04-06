@@ -13,20 +13,39 @@
 <body>
   <main class="content">
     <div class="top-buttons">
-      <button class="read-btn" type="button">See All Reviews</button>
-      <button class="write-btn" type="button">Add a place</button>
+      <button class="read-btn" type="button">Add a Review</button>
+      <button class="write-btn" type="button">See Reviews</button>
     </div>
-    <form class="form" action="/add-place" method="post">
-      <input type="text" class="name" name="name" placeholder="Name of place" required> 
-      <br>
-      <input type="text" class="description" name="description" placeholder="Type of place" required>
-      <br>
-      <textarea type="text" class="comment" name="comment" placeholder="Leave a review" required></textarea>
-      <button class="review-btn">Add Review!</button>
-    </form>
+    <section>
+      <h2>Review a place</h2>
+      <form class="form" action="/add-place" method="post">
+
+        <select name="user-id">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+
+        <select name="place-id">
+            <option value="Costa">Costa</option>
+            <option value="Franks Canteen">Franks Canteen</option>
+            <option value="Cinnamon Village">Cinnamon Village</option>
+            <option value="Yum">Yum</option>
+          </select>
+
+
+        <input type="text" class="name" name="name" placeholder="Name of place" required>
+        <br>
+        <input type="text" class="description" name="description" placeholder="Type of place" required>
+        <br>
+        <textarea type="text" class="comment" name="comment" placeholder="Leave a review" required></textarea>
+        <button class="review-btn add-review">Add Review!</button>
+      </form>
+    </section>
   </main>
- <div id="places"></div>
- <script src="public/dom.js" type="application/javascript"></script>
+  <div id="places"></div>
+  <script src="public/dom.js" type="application/javascript"></script>
 </body>
 
 </html>
