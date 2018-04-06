@@ -40,6 +40,11 @@ const placeHandler = (response, url) => {
   });
 };
 
+// const addPlaceHandler = (name, description) => {
+//   addPlaceHandler()
+//   const {name, description} = queryString.parse(data);
+// }
+
 module.exports = {
   staticHandler, placeHandler
 };
