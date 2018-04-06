@@ -1,8 +1,9 @@
 /* eslint-disable */
-var readButton = document.querySelector('.read-btn');
-var writeButton = document.querySelector('.write-btn');
+var viewButton = document.querySelector('.view-btn');
+var reviewButton = document.querySelector('.review-btn');
 var form = document.querySelector('.form');
 var places = document.getElementById('places');
+var topButtons  = document.querySelector('.top-buttons');
 
 var fetchXhr = function(url, callback) {
   console.log(url);
@@ -23,11 +24,12 @@ var fetchXhr = function(url, callback) {
 };
 
 
-writeButton.addEventListener('click', function(e) {
-  form.style.display = 'flex';
+reviewButton.addEventListener('click', function(e) {
+  document.querySelector('#review-form').removeAttribute('hidden');
+  topButtons.style.display = "none";
 })
 
-readButton.addEventListener('click', function(e) {
+viewButton.addEventListener('click', function(e) {
   var url = '/list-places';
     fetchXhr(url, function(error, response) {
       if (error) {
