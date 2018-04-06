@@ -12,35 +12,36 @@
 
 <body>
   <main class="content">
+    <h1>Where to go near Space4</h1>
     <div class="top-buttons">
-      <button class="read-btn" type="button">Add a Review</button>
-      <button class="write-btn" type="button">See Reviews</button>
+      <button class="review-btn" type="button">Add a Review</button>
+      <button class="view-btn" type="button">See Reviews</button>
     </div>
-    <section>
+    <section id="review-form" hidden aria-hidden="true">
       <h2>Review a place</h2>
       <form class="form" action="/add-place" method="post">
-
-        <select name="user-id">
+        <label for = "user-id">User ID</label>
+        <select id="user-id">
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
           <option value="4">4</option>
-        </select>
+        </select><br>
 
-        <select name="place-id">
-            <option value="Costa">Costa</option>
-            <option value="Franks Canteen">Franks Canteen</option>
-            <option value="Cinnamon Village">Cinnamon Village</option>
-            <option value="Yum">Yum</option>
-          </select>
+        <label for = "place-id">Place ID</label>
+        <select id="place-id">
+          <option value="Costa">Costa</option>
+          <option value="Franks Canteen">Franks Canteen</option>
+          <option value="Cinnamon Village">Cinnamon Village</option>
+          <option value="Yum">Yum</option>
+        </select><br>
 
 
-        <input type="text" class="name" name="name" placeholder="Name of place" required>
-        <br>
-        <input type="text" class="description" name="description" placeholder="Type of place" required>
-        <br>
-        <textarea type="text" class="comment" name="comment" placeholder="Leave a review" required></textarea>
-        <button class="review-btn add-review">Add Review!</button>
+        <!-- <input type="text" class="name" name="name" placeholder="Name of place" required> -->
+        <!-- <input type="text" class="description" name="description" placeholder="Type of place" required>
+        <br> -->
+        <textarea rows=10 cols=912 type="text" class="comment" name="comment" placeholder="Leave a review" required></textarea>
+        <br><button class="submit-btn add-review">Add Review!</button>
       </form>
     </section>
   </main>
