@@ -1,7 +1,9 @@
 const fs = require('fs');
 const path = require('path');
-const querystring = require('querystring');
+// const request = require('request');
+const queryString = require('querystring');
 const { getPlaces } = require('./queries/getData');
+const { addPlace, addReview } = require('./queries/postData');
 
 const staticHandler = (response, filepath) => {
   const extension = filepath.split('.')[1];
@@ -27,24 +29,21 @@ const staticHandler = (response, filepath) => {
 const placeHandler = (response, url) => {
   getPlaces((err, res) => {
     if (err) {
-      response.writeHead(500, "Content-Type:text/html");
-      response.end("<h1>Sorry, there was a problem getting the users</h1>");
+      response.writeHead(500, 'Content-Type:text/html');
+      response.end('<h1>Sorry, there was a problem getting the users</h1>');
       console.log(error);
     } else {
-      let output = JSON.stringify(res);
+      const output = JSON.stringify(res);
       response.writeHead(200, {
-        "content-type": "application/json"
+        'content-type': 'application/json',
       });
       response.end(output);
     }
   });
 };
 
-// const addPlaceHandler = (name, description) => {
-//   addPlaceHandler()
-//   const {name, description} = queryString.parse(data);
-// }
-
 module.exports = {
-  staticHandler, placeHandler
+  staticHandler,
+  placeHandler,
+  addPlaceHandler,
 };
