@@ -26,12 +26,12 @@ const staticHandler = (response, filepath) => {
   });
 };
 
-const placeHandler = (response, url) => {
+const placeHandler = (response) => {
   getPlaces((err, res) => {
     if (err) {
       response.writeHead(500, 'Content-Type:text/html');
       response.end('<h1>Sorry, there was a problem getting the users</h1>');
-      console.log(error);
+      console.log(err);
     } else {
       const output = JSON.stringify(res);
       response.writeHead(200, {
@@ -41,6 +41,54 @@ const placeHandler = (response, url) => {
     }
   });
 };
+
+function addPlaceHandler(request, response) {
+  let data = '';
+  request.on('data', (chunk) => {
+    data += chunk;
+  });
+  request.on('end', () => {
+    data = queryString.parse(data);
+
+    const [name, comment, description, positive] = [
+      data.name,
+      data.comment,
+      data.description,
+      !!data.positive,
+    ];
+    console.log(
+      'NAME, COMMENT, DES, +ITY',
+      name,
+      comment,
+      description,
+      positive,
+    );
+    addPlace(name, description, (err) => {
+      if (err) {
+        response.writeHead(500, { 'Content-Type': 'text/plain' });
+        // response.writeHead(307, { Location: '/add-place' });
+        response.end('sorry');
+      } else {
+        response.writeHead(200, { 'content-type': 'text/plain' });
+        // response.writeHead(307, { Location: '/add-place' });
+        response.end(`Successfully added ${name} as ${description}`);
+      }
+    });
+    addReview(comment, positive, (err) => {
+      if (err) {
+        response.writeHead(500, { 'Content-Type': 'text/plain' });
+        // response.writeHead(307, { Location: '/add-place' });
+        response.end('sorry');
+      } else {
+        response.writeHead(200, { 'content-type': 'text/plain' });
+        // response.writeHead(307, { Location: '/add-place' });
+        response.end(`Successfully added ${comment} as ${positive}`);
+      }
+    });
+  });
+  // addReview(user_id, place_id, comment, positive, cb) => {
+  // });
+}
 
 module.exports = {
   staticHandler,
