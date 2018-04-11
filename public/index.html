@@ -20,28 +20,35 @@
     <section id="review-form" hidden aria-hidden="true">
       <h2>Review a place</h2>
       <form class="form" action="/add-place" method="post">
-        <label for = "user-id">User ID</label>
+        <label for="user-id">User ID</label>
         <select id="user-id">
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
           <option value="4">4</option>
-        </select><br>
+        </select>
+        <br>
 
-        <label for = "place-id">Place ID</label>
-        <select id="place-id">
+        <label for="place-id">Place ID</label>
+        <!-- <select id="place-id">
           <option value="Costa">Costa</option>
           <option value="Franks Canteen">Franks Canteen</option>
           <option value="Cinnamon Village">Cinnamon Village</option>
           <option value="Yum">Yum</option>
-        </select><br>
+        </select><br> -->
 
 
-        <!-- <input type="text" class="name" name="name" placeholder="Name of place" required> -->
-        <!-- <input type="text" class="description" name="description" placeholder="Type of place" required>
-        <br> -->
+        <input type="text" class="name" name="name" placeholder="Name of place" required>
+
+        <label class="switch">
+          <input type="checkbox" name="positive">
+          <span class="slider round"></span>
+        </label>
+        <input type="text" class="description" name="description" placeholder="Type of place" required>
+        <br>
         <textarea rows=10 cols=912 type="text" class="comment" name="comment" placeholder="Leave a review" required></textarea>
-        <br><button class="submit-btn add-review">Add Review!</button>
+        <br>
+        <button class="submit-btn add-review">Add Review!</button>
       </form>
     </section>
   </main>
